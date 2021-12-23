@@ -1,5 +1,5 @@
-<app-header ()="onLinkClicked"></app-header>
+<app-header (linkClicked)="onLinkClicked($event)"></app-header>
 <div class="container">
-  <app-recipes></app-recipes>
-  <app-shopping-list></app-shopping-list>
+  <app-recipes *ngIf="this.activeLink === 'Recipes'"></app-recipes>
+  <app-shopping-list *ngIf="this.activeLink === 'Shopping List'"></app-shopping-list>
 </div>

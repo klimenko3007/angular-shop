@@ -10,6 +10,7 @@ export class AppComponent {
   activeLink: String = "Recipes"
 
   onLinkClicked(link: String) {
+    console.log(link)
     this.activeLink = link
   }
 
