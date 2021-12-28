@@ -1,0 +1,23 @@
+{
+  "eslint.enable": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.run": "onSave",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ],
+
+  "tslint.enable": true,
+  "tslint.jsEnable": false,
+  "tslint.alwaysShowStatus": true,
+  "tslint.run": "onSave",
+  "tslint.autoFixOnSave": true,
+}

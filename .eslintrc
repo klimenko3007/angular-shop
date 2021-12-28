@@ -1,0 +1,30 @@
+ {
+  "root": true,
+  //This allows ESLint to understand TypeScript syntax.
+  //This is required, or else ESLint will throw errors as it tries to parse TypeScript code as if it were regular JavaScrip
+  "parser": "@typescript-eslint/parser",
+  "settings": {
+    "import/resolver": {
+      "typescript":{
+      }
+    }
+  },
+  "plugins": [
+    //tells ESLint to load the plugin package you installed
+    //This allows you to use the rules within your codebase.
+    "@typescript-eslint"
+  ],
+  "extends": [
+    //tells ESLint that your config extends the given configurations.
+    "eslint:recommended",
+    // is ESLint's inbuilt "recommended" config - it turns on a small, sensible set of rules which lint for well-known best-practices
+    "plugin:@typescript-eslint/recommended",
+    //is our "recommended" config - it's just like eslint:recommended, except it only turns on rules from our TypeScript-specific plugin.
+    "plugin:import/recommended",
+    // This plugin intends to support linting of ES2015+ (ES6+) import/export syntax, and prevent issues with misspelling of file paths and import names.
+    "plugin:import/typescript"
+  ],
+  "rules": {
+    "semi": [2, "always"]
+  }
+}

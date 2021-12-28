@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -10,15 +10,15 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2017",
+    "target": "es2015",
     "module": "es2020",
     "lib": [
       "es2020",
       "dom"
     ],
     "paths": {
-      "@shared/*": ["app/shared/*"],
-      "@recipes/*": ["app/recipes/*"]
+      "@shared/*": ["./src/app/shared/*"],
+      "@recipes/*": ["./src/app/recipes/*"]
     }
   },
   "angularCompilerOptions": {
