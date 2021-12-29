@@ -1,19 +1,15 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-  @Output() linkClicked = new EventEmitter<String>()
+export class HeaderComponent {
+  @Output() linkClicked = new EventEmitter<string>();
 
-  onLinkClicked(link: String) {
-    this.linkClicked.emit(link)
-  }
-  constructor() { }
-
-  ngOnInit(): void {
+  onLinkClicked(link: string) {
+    this.linkClicked.emit(link);
   }
 
 }
