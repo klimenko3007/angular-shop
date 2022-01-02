@@ -10,6 +10,7 @@ export class DropdownDirective {
 
   @HostListener('click') toggleOpen() {
     this.isOpen = !this.isOpen;
+    // this.isOpen = this.elRef.nativeElement.contains(event.target) ? !this.isOpen : false;
   }
 
 }
