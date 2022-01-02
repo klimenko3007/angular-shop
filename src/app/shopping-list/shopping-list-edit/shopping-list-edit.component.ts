@@ -13,7 +13,7 @@ export class ShoppingListEditComponent {
   constructor(private shoppingListService: ShoppingListService) {}
 
   onIngredientAdded() {
-    this.shoppingListService.addedIngredient.emit( {
+    this.shoppingListService.addIngredient( {
       name: this.ingredientName.nativeElement.value,
       amount: this.ingredientAmount.nativeElement.value
     });

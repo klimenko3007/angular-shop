@@ -5,19 +5,19 @@ import { Ingredient } from '@shared/ingredient.model';
   providedIn: 'root'
 })
 export class ShoppingListService {
-  addedIngredient = new EventEmitter<Ingredient>();
+  changedIngredients = new EventEmitter<Ingredient[]>();
   ingredients: Ingredient[] = [
     new Ingredient('apples', 5),
     new Ingredient('bananas', 6)
   ];
 
-  //constructor() { }
 
   getIngredients() {
     return this.ingredients.slice();
   }
 
-    addIngredient(ingredient: Ingredient) {
-      this.ingredients = [...this.ingredients, ingredient];
-    }
+  addIngredient(ingredient: Ingredient) {
+    this.ingredients = [...this.ingredients, ingredient];
+    this.changedIngredients.emit(this.ingredients.slice());
   }
+}
