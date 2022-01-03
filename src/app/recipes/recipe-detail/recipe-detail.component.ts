@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { Recipe } from "@recipes/recipe.model";
-import { Ingredient } from "@shared/ingredient.model";
+//import { Ingredient } from "@shared/ingredient.model";
 import { ShoppingListService } from "src/app/shopping-list/shopping-list.service";
 @Component({
   selector: 'app-recipe-detail',
@@ -11,9 +11,8 @@ export class RecipeDetailComponent {
   constructor( private slService: ShoppingListService) {}
   
   addToShoppingList(){
-    this.recipe.ingredients.forEach((ingredient: Ingredient) => {
-      this.slService.addIngredient(ingredient);
-    });
+    this.slService.ingredients.push(...this.recipe.ingredients);
+    this.slService.changedIngredients.emit(this.slService.ingredients.slice());
   }
 
 } 
