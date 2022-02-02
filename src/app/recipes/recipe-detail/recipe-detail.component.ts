@@ -37,7 +37,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy{
 
   addToShoppingList(){
     this.slService.ingredients.push(...this.recipe.ingredients);
-    this.slService.changedIngredients.emit(this.slService.ingredients.slice());
+    this.slService.changedIngredients.next(this.slService.ingredients.slice());
   }
 
 } 
