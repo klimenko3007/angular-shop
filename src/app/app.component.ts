@@ -9,9 +9,4 @@ export class AppComponent {
   title = 'my-recipe-app';
   activeLink = "Recipes";
 
-  onLinkClicked(link: string) {
-    this.activeLink = link;
-  }
-
-
 }
