@@ -25,16 +25,28 @@
             pattern="^[1-9]+[0-9]*$"
           >
         </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <button 
-              class="btn btn-success" 
-              type="submit" 
-              [disabled]="!shoppingListForm.form.valid"
-            >Add</button>
-            <button class="btn btn-danger" type="button" (click)="onDeleteButtonClicked(shoppingListForm)">Delete</button>
-            <button class="btn btn-primary" type="button" (click)="this.onClearButtonClicked(shoppingListForm)">Clear</button>
-          </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button 
+            class="btn btn-success" 
+            type="submit" 
+            [disabled]="!shoppingListForm.form.valid"
+          >{{this.editMode ? 'Update': 'Add' }}</button>
+
+          <button 
+            class="btn btn-danger" 
+            type="button" 
+            (click)="onDeleteButtonClicked(shoppingListForm)"
+            *ngIf="this.editMode"
+            >Delete</button>
+
+          <button 
+            class="btn btn-primary" 
+            type="button" 
+            (click)="this.clearForm(shoppingListForm)"
+            >
+            Clear</button>
         </div>
       </div>
     </form>

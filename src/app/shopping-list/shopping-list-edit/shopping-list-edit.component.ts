@@ -29,17 +29,16 @@ export class ShoppingListEditComponent {
         amount: value.amount
       });
     }
-    this.editMode = false;
-    form.reset();
+    this.clearForm(form);
   }
-  onClearButtonClicked (form: NgForm) {
+  clearForm (form: NgForm) {
     form.reset();
+    this.editMode = false;
   }
 
   onDeleteButtonClicked (form: NgForm) {
-    const ingredientName = form.value.name;
-    this.shoppingListService.deleteIngredient(ingredientName);
-    this.editMode = false;
+    this.shoppingListService.deleteIngredient(this.editedItemIndex);
+    this.clearForm(form);
   }
 
   ngOnInit () {

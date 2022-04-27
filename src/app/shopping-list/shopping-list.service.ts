@@ -24,8 +24,7 @@ export class ShoppingListService {
   }
 
   updateIngredient(index: number, ingredient: Ingredient) {
-    this.ingredients[index].name = ingredient.name;
-    this.ingredients[index].amount = ingredient.amount;
+    this.ingredients[index] = ingredient;
     this.changedIngredients.next(this.ingredients.slice());
   }
 
@@ -34,8 +33,8 @@ export class ShoppingListService {
     this.changedIngredients.next(this.ingredients.slice());
   }
 
-  deleteIngredient(ingredientName: string) {
-    this.ingredients = this.ingredients.filter((ingredient) => ingredient.name !== ingredientName);
+  deleteIngredient(index:number) {
+    this.ingredients.splice(index, 1);
     this.changedIngredients.next(this.ingredients.slice());
   }
 }
