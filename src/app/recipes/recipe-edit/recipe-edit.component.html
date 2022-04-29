@@ -1,10 +1,18 @@
 <div class="row">
   <div class="col-xs-12">
-    <form [formGroup]="this.recipeForm">
+    <form [formGroup]="this.recipeForm" (ngSubmit)="this.onRecipeSave()">
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-success">Save</button>
-          <button type="button" class="btn btn-danger">Cancel</button>
+          <button 
+            type="submit" 
+            class="btn btn-success"
+            [disabled]="!this.recipeForm.valid"
+            >Save</button>
+          <button 
+            type="button" 
+            class="btn btn-danger"
+            (click)="this.clearForm()"
+          >Cancel</button>
         </div>
       </div>
       <div class="row">
@@ -71,10 +79,20 @@
               >
             </div>
             <div class="col-xs-2">
-              <button class="btn btn-danger">X</button>
+              <button class="btn btn-danger" type="button" (click)="onIngredientDelete(i)">X</button>
             </div>
           </div>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button 
+            class="btn btn-success" 
+            style="margin-top: 5px" 
+            type="button" 
+            (click)="this.onIngredientAdd()"> 
+            Add ingredient</button>
+        </div>  
       </div>
     </form>
   </div>
