@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Recipe } from "@recipes/recipe.model";
 import { RecipeService } from "@recipes/recipe.service";
 import { Subscription } from "rxjs";
@@ -17,8 +17,14 @@ export class RecipeDetailComponent implements OnInit, OnDestroy{
   constructor( 
     private slService: ShoppingListService, 
     private route: ActivatedRoute,
+    private router: Router,
     private recipeService: RecipeService
     ) {}
+
+  onRecipeDelete() {
+    this.recipeService.deleteRecipe(this.id);
+    this.router.navigate(['recipes']);
+  }
   
   ngOnInit() {
     this.paramsSubscription = this.route.params
