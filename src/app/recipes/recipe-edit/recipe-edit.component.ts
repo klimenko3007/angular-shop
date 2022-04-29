@@ -60,19 +60,16 @@ export class RecipeEditComponent implements OnInit {
   }
 
   clearForm() {
-    this.recipeForm.reset();
-    this.editMode = false;
-    this.router.navigate(['recipes']); 
+    this.router.navigate(['../'], {relativeTo: this.route}); 
   }
 
   onRecipeSave() {
     const recipe = this.recipeForm.value;
-    console.log(this.id);
-    if(isNaN(this.id)) {
-      this.recipeService.addRecipe(recipe);
 
-    } else {
+    if(this.editMode) {
       this.recipeService.updateRecipeByID(this.id, recipe);
+    } else {
+      this.recipeService.addRecipe(recipe);
     }
     this.clearForm();
   }
